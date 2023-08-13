@@ -1,0 +1,146 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'app/css/api.css' %}">
+    <script src="{% static 'app/js/app.js' %}"></script>
+    <style>
+
+    div.container{border-style: double;
+    background-image: url("https://thumbs.dreamstime.com/b/rice-farm-blur-background-drop-bamboo-hut-rice-farm-blur-background-drop-water-rain-bamboo-hut-easy-life-123117043.jpg");
+    background-size: cover;
+  }
+    
+
+    div.friend2field{
+      font-weight: bold;
+      display: grid;
+      grid-template-columns: 1fr 2fr ;
+    }
+    body {
+      background-image: url('https://st.depositphotos.com/1033604/2008/i/450/depositphotos_20087015-stock-photo-sunlit-young-corn-plants.jpg');
+      background-size: cover;
+  
+    }
+
+    .btn{
+      float:right;
+      font-weight: bold;
+      border: 5px solid #555555;
+
+
+
+    }
+
+    .container {
+        margin-top: 176px;
+        width: fit-content;
+        height: fit-content;
+      }
+    
+
+
+    </style>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Crop Prediction</title>
+  </head>
+  <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="">Crop Prediction</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+</nav>
+
+<div class="input">
+  <input type="text" placeholder="Enter the city" class="input_text">
+  <input type="submit" value="Submit" class="submit">
+</div>
+</div>
+
+<div class="container" style="margin-top: 20px;">
+<div class="card">
+  <h1 class="name" id="name"></h1>
+  <p class="temp" style="margin: 1px;"></p>
+  <p class="rain" style="margin: 33px;"></p>
+  <p class="hum" style="margin: -97px 0;"></p>
+  <p class="clouds"></p>
+  <p class="desc"></p>
+</div>
+
+</div>
+<script src="{% static 'app/js/app.js' %}"></script>
+
+
+<div class="container">
+
+  <form action='/analyze' method='post'> {% csrf_token %}
+
+    <div class="friend2field">
+      <label for="url">Enter Temperature Value:</label>
+      <input name="temperature" type="number" placeholder="Enter value in °C" step="0.01" min="0"  required>
+    </div>
+    <br>
+
+    <div class="friend2field">
+      <label for="url">Enter Humidity Value:</label>
+      <input name="humidity" type="number" placeholder="Enter value from 0-100" step="0.01" min="0" max="100" required>
+    </div>
+    <br>
+
+    <div class="friend2field">
+      <label for="url">Enter Pressure Value:</label>
+      <input name="rainfall" type="number" placeholder="Enter value in hPa" step="0.01" min="0" required>
+    </div>
+    <br>
+
+    <div class="friend2field">
+      <label for="url">Enter pH Value:</label>
+      <input name="ph" type="number" placeholder="Enter pH in range 0-14"  step="0.01" min="0" max="14" required>
+    </div>
+    <br>
+
+    <div class="friend2field">
+      <label for="url">Enter Nitrogen(N) value:</label>
+      <input  name="nitrogen" type="number" placeholder="Enter value in ppm" step="1" min="0" onchange="this.value = parseInt(this.value);" required>
+    </div>
+    <br>
+
+    <div class="friend2field">
+      <label for="url">Enter Phosphorous(P) value:</label>
+      <input name="phosphorous" type="number" placeholder="Enter value in ppm" step="1" min="0" onchange="this.value = parseInt(this.value);" required>
+    </div>
+    <br>
+
+    <div class="friend2field">
+      <label for="url">Enter Potassium(K) value:</label>
+      <input name="potassium" type="number" placeholder="Enter value in ppm" step="1" min="0" onchange="this.value = parseInt(this.value);" required>
+    </div>
+    <br>
+
+    <div class="col-lg-6 text-center" style="margin-top: 20px;">
+      <button type="submit" class="btn btn-dark mt-50">Predict</button>
+    </div>  
+
+
+
+
+    </form>
+</div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="{% static 'app/js/app.js' %}"></script>
+  </body>
+</html>
