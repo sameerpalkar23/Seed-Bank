@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Result</title>
+
+  <script src="https://kit.fontawesome.com/47101d2035.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <style>
+    .center {
+      position: absolute;
+      text-align: center;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: rgb(230, 239, 245);
+    }
+  </style>
+</head>
+
+<body class="center">
+
+
+    <div class="container">
+    
+        <h1 class="text center mt-3">Predicted Results</h1>
+    
+        <h1 class='text-center text-primary'>Results<b>{{ classification_result}}</b>YOur Yeild is </h1>
+    
+    </div>
+    
+    
+    <div class="container">
+    
+        <h1 class='text-center mt-3'>Predicted Results</h1>
+    
+        <h1 class='text-center text-primary'>Results <b>{{ classification_result }}</b></h1>
+    
+        
+    
+<a class='btn btn-primary mt 4 p 1 text center' href="{% url 'home' %}">Go Back</a>
+    
+
+</body>
+
+</html>
+
+
+   
